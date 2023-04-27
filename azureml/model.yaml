@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
+name: yolov8n
+path: ../yolov8n.pt # path of model relative to the azureml folder
+description: yolov8n pre-trained model

@@ -1,0 +1,5 @@
+$schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+name: coco128
+description: Coco 128 dataset
+type: uri_folder
+path: ../coco128

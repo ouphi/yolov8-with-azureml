@@ -1,0 +1,19 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+experiment_name: yolov8-experiment
+
+command: |
+  sed -i "s|path:.*$|path: ${{ inputs.training_data }}|" custom-coco128.yaml
+  # Train the model
+  yolo task=detect train data=custom-coco128.yaml model=${{ inputs.model_to_train }} epochs=3 project=yolov8-experiment name=experiment
+
+inputs:
+  training_data:
+    type: uri_folder
+    path: azureml:coco128:1
+  model_to_train:
+    type: custom_model
+    path: azureml:yolov8n:1
+
+code: ../training-code/
+environment: azureml:yolov8-environment:1
+compute: azureml:cluster-with-1-k80-gpu
