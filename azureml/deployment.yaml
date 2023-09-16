@@ -1,0 +1,15 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: yolodeployment
+endpoint_name: yolovendpoint
+model:
+  #azureml:<your-model-name>:1
+  #path: <relative local path to your .pt model from the azureml folder>
+code_configuration:
+  code: ../inference-code
+  scoring_script: score.py
+environment:
+  build:
+    path: ../azureml-yolov8-inference
+    dockerfile_path: Dockerfile
+instance_type: Standard_DS3_v2
+instance_count: 1

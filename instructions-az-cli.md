@@ -47,9 +47,9 @@ RUN apt install --no-install-recommends -y gcc git zip curl htop libgl1-mesa-glx
 # https://security.snyk.io/vuln/SNYK-UBUNTU1804-OPENSSL-3314796
 RUN apt upgrade --no-install-recommends -y openssl tar
 
-RUN pip install ultralytics==8.0.88
-RUN pip install azureml-mlflow==1.50.0
-RUN pip install mlflow==2.2.2
+RUN pip install ultralytics==8.0.132
+RUN pip install azureml-mlflow==1.52.0
+RUN pip install mlflow==2.4.2
 ```
 
 Note that Ultralytics provides [Dockerfiles for different platform](https://github.com/ultralytics/ultralytics/tree/main/docker). Here we used the same base image and installed the same linux dependencies than the [amd64 Dockerfile](https://github.com/ultralytics/ultralytics/blob/main/docker/Dockerfile), but we installed the ultralytics package with pip install to control the version we install and make sure the package version is deterministic. To track hyperparameters and metrics in AzureML, we installed [mlflow](https://pypi.org/project/mlflow/) and [azureml-mlflow](https://pypi.org/project/azureml-mlflow/). This enables us to evaluate our model performance easily and compare models from various training runs in AzureML studio.

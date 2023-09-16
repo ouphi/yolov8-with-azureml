@@ -1,2 +1,4 @@
 yolov8n.pt
 coco128/*
+.vscode
+.idea
