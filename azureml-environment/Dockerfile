@@ -13,6 +13,6 @@ RUN apt install --no-install-recommends -y gcc git zip curl htop libgl1-mesa-glx
 # https://security.snyk.io/vuln/SNYK-UBUNTU1804-OPENSSL-3314796
 RUN apt upgrade --no-install-recommends -y openssl tar
 
-RUN pip install ultralytics==8.0.132
+RUN pip install ultralytics==8.0.180
 RUN pip install azureml-mlflow==1.52.0
 RUN pip install mlflow==2.4.2

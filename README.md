@@ -50,19 +50,13 @@ Note your endpoint name and score uri (you can retrieve them from the azure work
 
 ### Test the endpoint and allocate traffic
 
-You can test your deployment with the az cli:
-
-```bash
-az ml online-endpoint invoke --name $ENDPOINT_NAME --request-file inference-sample-request.json
-```
-
-We can't invoke the endpoint with curl yet. To be able to invoke it with an http client, you need to allocate traffic to your endpoint. (For more information [see this doc](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-safely-rollout-online-endpoints?view=azureml-api-2&tabs=azure-cli#confirm-your-existing-deployment))
+To be able invoke our endpoint with an http client, you need to allocate traffic to your endpoint. (For more information [see this doc](https://learn.microsoft.com/en-us/azure/machine-learning/how-to-safely-rollout-online-endpoints?view=azureml-api-2&tabs=azure-cli#confirm-your-existing-deployment))
 
 ```bash
 az ml online-endpoint show -n $ENDPOINT_NAME --query traffic
 ```
 
-You can see that 0% is allocated to the blue deployment, so let's allocate 100% traffic to blue deployment:
+You can see that 0% is allocated to the blue deployment, so let's allocate 100% traffic to our unique blue deployment:
 
 ```bash
 az ml online-endpoint update --name $ENDPOINT_NAME --traffic "blue=100"
