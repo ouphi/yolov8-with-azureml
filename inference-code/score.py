@@ -12,7 +12,7 @@ def init():
 
 def run(raw_data):
     image_url = json.loads(raw_data)["image_url"]
-    results = model(image_url) # https://ultralytics.com/images/bus.jpg
+    results = model(image_url)
     result = results[0]
     serialized_result = json.loads(result.tojson())
     return serialized_result

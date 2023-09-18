@@ -12,12 +12,14 @@ You can find the detailed instructions to train the yolov8 model with the az cli
 
 ## Deploy model for inference
 
-You can register the model resulting from a training job.
-In job Overview, you can select Register model.
+### Register the model from the workspace UI
+You can register the model resulting from a training job. 
+Go to your job Overview and select "Register model".
 Select model of type Unspecified type enable "Show all default outputs" > and select best.pt.
 (Note that your training environment needs azureml-mlflow==1.52.0 and mlflow==2.4.2 to enable mlflow logging and being able to retrieve the model)
 
-Then in `azureml/deployment.yaml`, specify your model
+### Create the deployment
+In `azureml/deployment.yaml`, specify your model
 
 You can either specify a registered model.
 
