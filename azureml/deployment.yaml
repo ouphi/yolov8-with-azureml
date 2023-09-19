@@ -9,7 +9,7 @@ code_configuration:
   scoring_script: score.py
 environment:
   build:
-    path: ../azureml-yolov8-inference
+    path: ../inference-environment
     dockerfile_path: Dockerfile
 instance_type: Standard_DS3_v2
 instance_count: 1
