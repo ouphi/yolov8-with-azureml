@@ -34,6 +34,8 @@ model:
   path: <model-relative-path-to-azureml-folder>
 ```
 
+Note that you might need to increase the request_timeout_ms by specifying it in the deployment.yaml if running your 
+inference takes time
 ### Deploy your model for inference 
 
 To deploy your endpoint in your azureml workspace:
