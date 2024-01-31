@@ -181,12 +181,12 @@ az ml model create -f azureml/model.yaml
 ## Training code
 
 We will create a `training-code` folder containing the required files to run our training.
-I want to show you how you can create your custom dataset definition. So we will download the [coco128.yaml](https://github.com/ultralytics/ultralytics/blob/main/ultralytics/datasets/coco128.yaml) and call it custom-coco128.yaml.
+I want to show you how you can create your custom dataset definition. So we will download the [coco128.yaml](https://raw.githubusercontent.com/ultralytics/ultralytics/main/ultralytics/cfg/datasets/coco128.yaml) and call it custom-coco128.yaml.
 We have to put this file in the `training-code` folder to make sure it is available when running our training:
 
 ```bash
 mkdir training-code
-wget https://raw.githubusercontent.com/ultralytics/ultralytics/main/ultralytics/datasets/coco128.yaml -O training-code/custom-coco128.yaml
+wget https://raw.githubusercontent.com/ultralytics/ultralytics/main/ultralytics/cfg/datasets/coco128.yaml -O training-code/custom-coco128.yaml
 ```
 
 We want to ensure that the AzureML job uses our dataset coco128, rather than downloading it during the job, so let's remove the last line of the `custom-coco128.yaml`:
